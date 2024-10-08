@@ -9,6 +9,7 @@ namespace JourneyToTheMysticCave_Beta
     internal class HealthSystem
     {
         public int health;
+        public int maxHealth = 100;
         public bool hurt;
         public bool hurtByTrap;
         public bool floorDamage;
@@ -48,9 +49,9 @@ namespace JourneyToTheMysticCave_Beta
             health += hp;
             healed = true;
 
-            if (health >= 100)
+            if (health >= maxHealth)
             {
-                health = 100;
+                health = maxHealth;
                 cannotHeal = true;
             }
         }
