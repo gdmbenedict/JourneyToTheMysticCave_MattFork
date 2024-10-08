@@ -8,6 +8,7 @@ namespace JourneyToTheMysticCave_Beta
 {
     internal abstract class Item : GameObject
     {
+        public int value;
         public bool collected = false;
         public bool pickedUp = false;
         public int count;

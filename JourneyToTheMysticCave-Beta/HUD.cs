@@ -58,14 +58,19 @@ namespace JourneyToTheMysticCave_Beta
                 health = $"{EnemyHealth()}";
             Console.WriteLine($"Enemy Health - {health}");
             Console.Write("Money Picked Up: ");
+
+            //money changes
+            int money = player.money;
+
             foreach(Item item in itemManager.items)
             {
-                if (item.GetType().Name == "Money" && item.collected)
+                if (item.GetType().Name == "Money" && item.collected && money > 0)
                 {
                     legendColors.MapColor(item.character);
                     Console.Write(item.character);
                     Console.ResetColor();
                     Console.Write(' ');
+                    money--;
                 }
             }
             Console.WriteLine();

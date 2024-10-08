@@ -15,7 +15,12 @@ namespace JourneyToTheMysticCave_Beta
         public override void Update()
         {
             if (player.pos.x == pos.x && player.pos.y == pos.y)
+            {
+                //player can only collect one money at a time
+                player.money += 1;
                 TryCollect();
+            }
+                
         }
     }
 }

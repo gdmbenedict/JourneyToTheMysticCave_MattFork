@@ -10,6 +10,7 @@ namespace JourneyToTheMysticCave_Beta
 {
     internal class Player : GameEntity
     {
+        public int money;
         int dirX;
         int dirY;
         bool inDeep = false;
@@ -35,6 +36,7 @@ namespace JourneyToTheMysticCave_Beta
         public Player()
         {
             healthSystem = new HealthSystem();
+            money = 0;
         }
 
         public void Init(Map map, GameStats gameStats, LegendColors legendColors, EnemyManager enemyManager, LevelManager levelManager, ItemManager itemManager)
