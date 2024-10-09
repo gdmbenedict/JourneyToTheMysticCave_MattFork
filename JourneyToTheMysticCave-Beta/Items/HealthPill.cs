@@ -25,5 +25,13 @@ namespace JourneyToTheMysticCave_Beta.Items
                 player.healthSystem.Heal(player.healthSystem.maxHealth);
             }
         }
+
+        public override string Use()
+        {
+            player.healthSystem.maxHealth += healIncrease;
+            player.healthSystem.Heal(player.healthSystem.maxHealth);
+            string message = player.name + " used a " + name + " and gained " + healIncrease + " additional Hp.";
+            return message;
+        }
     }
 }

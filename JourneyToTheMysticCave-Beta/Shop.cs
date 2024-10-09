@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace JourneyToTheMysticCave_Beta
 {
-    internal class Shop
+    internal class Shop : Item
     {
-        public string name;
+        private Item[] inventory;
+        private int[] prices;
 
-        public Shop()
+        public Shop(int count, char character, string name, LegendColors legendColors, Player player) : base(count, character, name, legendColors, player)
         {
-            
+           this.name = pickRandomName();
         }
 
         //Method that picks a random name from a list of names
@@ -93,6 +94,16 @@ namespace JourneyToTheMysticCave_Beta
             }
 
             return name;
+        }
+
+        private void populateShop()
+        {
+
+        }
+
+        public void Use()
+        {
+            //filling requirements of the item class
         }
     }
 }

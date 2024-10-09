@@ -24,5 +24,12 @@ namespace JourneyToTheMysticCave_Beta
                 player.healthSystem.Heal(healAmount);
             }
         }
+
+        public override string Use()
+        {
+            player.healthSystem.Heal(healAmount);
+            string message = player.name + " used a " + name + " and healed " + healAmount + ".";
+            return message;
+        }
     }
 }

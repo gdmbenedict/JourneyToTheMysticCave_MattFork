@@ -22,5 +22,12 @@ namespace JourneyToTheMysticCave_Beta
             }
                 
         }
+
+        public override string Use()
+        {
+            player.money += 1;
+            string message = player.name + " found some " + name + " and put it in their pocket.";
+            return message;
+        }
     }
 }

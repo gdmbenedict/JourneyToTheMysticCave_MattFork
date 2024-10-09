@@ -24,5 +24,12 @@ namespace JourneyToTheMysticCave_Beta
                 player.damage += swordMultiplier;
             }
         }
+
+        public override string Use()
+        {
+            player.damage += swordMultiplier;
+            string message = player.name + " used a " + name + " and gained " + swordMultiplier + " attack power.";
+            return message;
+        }
     }
 }

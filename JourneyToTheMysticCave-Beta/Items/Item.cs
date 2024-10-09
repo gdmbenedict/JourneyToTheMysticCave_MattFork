@@ -49,5 +49,7 @@ namespace JourneyToTheMysticCave_Beta
                 pos = new Point2D { x = 0, y = 0 };
             }
         }
+
+        public abstract string Use();
     }
 }
