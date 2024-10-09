@@ -8,10 +8,11 @@ namespace JourneyToTheMysticCave_Beta
 {
     internal class Shop : Item
     {
+        public GameStats stats;
         private Item[] inventory;
         private int[] prices;
 
-        public Shop(int count, char character, string name, LegendColors legendColors, Player player) : base(count, character, name, legendColors, player)
+        public Shop(GameStats stats, int count, char character, string name, LegendColors legendColors, Player player, int value) : base(count, character, name, legendColors, player, value)
         {
            this.name = pickRandomName();
         }
@@ -96,14 +97,16 @@ namespace JourneyToTheMysticCave_Beta
             return name;
         }
 
-        private void populateShop()
+        private void populateShop(GameStats stats, LegendColors legendColors, Player player)
         {
-
+            var potion = new Potion(stats.PotionCount, stats.PotionCharacter, stats.PotionName, stats.PotionHeal, legendColors, player, stats.PotionValue);
+            var sword = new Sword(stats.SwordCount, stats.SwordCharacter, stats.SwordName, stats.SwordMultiplier, legendColors, player, stats.SwordValue);
         }
 
-        public void Use()
+        public override string Use()
         {
             //filling requirements of the item class
+            return "";
         }
     }
 }

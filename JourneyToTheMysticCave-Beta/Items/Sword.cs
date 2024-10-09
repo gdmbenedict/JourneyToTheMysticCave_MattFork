@@ -10,8 +10,8 @@ namespace JourneyToTheMysticCave_Beta
     {
         public int swordMultiplier;
 
-        public Sword(int count, char character, string name, int swordMultiplier, LegendColors legendColors, Player player) : 
-            base(count, character, name, legendColors, player)
+        public Sword(int count, char character, string name, int swordMultiplier, LegendColors legendColors, Player player, int value) : 
+            base(count, character, name, legendColors, player, value)
         {
             this.swordMultiplier = swordMultiplier;
         }

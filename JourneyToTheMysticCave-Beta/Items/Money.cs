@@ -8,8 +8,8 @@ namespace JourneyToTheMysticCave_Beta
 {
     internal class Money : Item
     {
-        public Money(int count, char character, string name, LegendColors legendColors, Player player) :
-            base(count, character, name, legendColors, player)
+        public Money(int count, char character, string name, LegendColors legendColors, Player player, int value) :
+            base(count, character, name, legendColors, player, value)
         { }
 
         public override void Update()

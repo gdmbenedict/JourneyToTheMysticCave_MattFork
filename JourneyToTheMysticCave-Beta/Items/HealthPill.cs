@@ -10,8 +10,8 @@ namespace JourneyToTheMysticCave_Beta.Items
     {
         public int healIncrease;
 
-        public HealthPill(int count, char character, string name, int healIncrease, LegendColors legendColors, Player player) :
-            base(count, character, name, legendColors, player)
+        public HealthPill(int count, char character, string name, int healIncrease, LegendColors legendColors, Player player, int value) :
+            base(count, character, name, legendColors, player, value)
         {
             this.healIncrease = healIncrease;
         }

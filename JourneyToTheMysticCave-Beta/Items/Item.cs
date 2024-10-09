@@ -15,13 +15,14 @@ namespace JourneyToTheMysticCave_Beta
         public Player player;
         LegendColors legendColors;
 
-        public Item(int count, char character, string name, LegendColors legendColors, Player player)
+        public Item(int count, char character, string name, LegendColors legendColors, Player player, int value)
         {
             this.count = count;
             this.character = character;
             this.name = name;
             this.legendColors = legendColors;
             this.player = player;
+            value = this.value;
         }
 
         

@@ -66,6 +66,8 @@ namespace JourneyToTheMysticCave_Beta
         public int MoneyCount { get; set; }
         public char MoneyCharacter { get; set; }
         public string MoneyName { get; set; }
+
+        public int MoneyValue { get; set; }
         #endregion
 
         #region PotionStat Declarations
@@ -73,6 +75,16 @@ namespace JourneyToTheMysticCave_Beta
         public char PotionCharacter { get; set; }
         public string PotionName { get; set; }
         public int PotionHeal { get; set; }
+        public int PotionValue { get; set; }
+        #endregion
+
+        #region HealthPillStat Declarations
+        public int HealthPillCount { get; set; }
+        public char HealthPillCharacter { get; set; }
+        public string HealthPillName { get; set; }
+        public int HealthPillIncrease { get; set; }
+
+        public int HealthPillValue { get; set; }
         #endregion
 
         #region TrapStat Declarations
@@ -80,6 +92,8 @@ namespace JourneyToTheMysticCave_Beta
         public char TrapCharacter { get; set; }
         public string TrapName { get; set; }
         public int TrapDamage { get; set; }
+
+        public int TrapValue { get; set; }
         #endregion
 
         #region SwordStat Declarations
@@ -87,6 +101,7 @@ namespace JourneyToTheMysticCave_Beta
         public char SwordCharacter { get; set; }
         public string SwordName { get; set; }
         public int SwordMultiplier { get; set; }
+        public int SwordValue { get; set; }
         #endregion
 
         public int PoisonDamage;
@@ -148,24 +163,35 @@ namespace JourneyToTheMysticCave_Beta
             MoneyCount = 6;
             MoneyCharacter = '$';
             MoneyName = "Money";
+            MoneyValue = 1;
 
             // Potion Configs
             PotionCount = 6;
             PotionName = "Potion";
             PotionCharacter = '6';
             PotionHeal = 10;
+            PotionValue = 1;
+
+            // HealthPill Configs
+            HealthPillCount = 0;
+            HealthPillName = "HealthPill";
+            HealthPillCharacter = 'p';
+            HealthPillIncrease = 20;
+            HealthPillValue = 3;
 
             // Trap Configs
             TrapCount = 30;
             TrapCharacter = 'T';
             TrapName = "Trap";
             TrapDamage = 4;
+            TrapValue = 0;
 
             // Sword Configs
             SwordCount = 3;
             SwordCharacter = 't';
             SwordName = "Sword";
             SwordMultiplier = 10;
+            SwordValue = 2;
 
             // Floor Damage
             PoisonDamage = 5;

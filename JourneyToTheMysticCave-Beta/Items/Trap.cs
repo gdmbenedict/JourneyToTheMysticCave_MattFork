@@ -12,8 +12,8 @@ namespace JourneyToTheMysticCave_Beta
         EnemyManager enemyManager;
         LevelManager levelManager;
 
-        public Trap(int count, char character, string name, int trapDamage, LegendColors legendColors,  Player player, EnemyManager enemyManager, LevelManager levelManager) : 
-            base(count, character, name, legendColors, player)
+        public Trap(int count, char character, string name, int trapDamage, LegendColors legendColors,  Player player, EnemyManager enemyManager, LevelManager levelManager, int value) : 
+            base(count, character, name, legendColors, player, value)
         {
             this.trapDamage = trapDamage;
             this.enemyManager = enemyManager;
@@ -56,6 +56,12 @@ namespace JourneyToTheMysticCave_Beta
             if (player.pos.x == x && player.pos.y == y)
                 return player;
             else return null;
+        }
+
+        public override string Use()
+        {
+            //filling requirements of the item class
+            return "";
         }
     }
 }
