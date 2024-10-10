@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JourneyToTheMysticCave_Beta.Items;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,13 @@ namespace JourneyToTheMysticCave_Beta
 {
     internal class Shop : Item
     {
-        public GameStats stats;
         private Item[] inventory;
-        private int[] prices;
 
         public Shop(GameStats stats, int count, char character, string name, LegendColors legendColors, Player player, int value) : base(count, character, name, legendColors, player, value)
         {
-           this.name = pickRandomName();
+            this.name = pickRandomName();
+            populateShop(stats, legendColors, player);
+            
         }
 
         //Method that picks a random name from a list of names
@@ -99,8 +100,12 @@ namespace JourneyToTheMysticCave_Beta
 
         private void populateShop(GameStats stats, LegendColors legendColors, Player player)
         {
-            var potion = new Potion(stats.PotionCount, stats.PotionCharacter, stats.PotionName, stats.PotionHeal, legendColors, player, stats.PotionValue);
-            var sword = new Sword(stats.SwordCount, stats.SwordCharacter, stats.SwordName, stats.SwordMultiplier, legendColors, player, stats.SwordValue);
+            //setting inventory
+            inventory = new Item[3]{
+                    new Potion(stats.PotionCount, stats.PotionCharacter, stats.PotionName, stats.PotionHeal, legendColors, player, stats.PotionValue),
+                    new Sword(stats.SwordCount, stats.SwordCharacter, stats.SwordName, stats.SwordMultiplier, legendColors, player, stats.SwordValue),
+                    new HealthPill(stats.HealthPillCount, stats.HealthPillCharacter, stats.HealthPillName, stats.HealthPillIncrease, legendColors, player, stats.HealthPillValue)
+                    };
         }
 
         public override string Use()
