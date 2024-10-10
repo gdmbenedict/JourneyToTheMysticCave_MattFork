@@ -33,10 +33,10 @@ namespace JourneyToTheMysticCave_Beta
         public void Draw()
         {
             int columnPos = map.GetMapColumnCount() + 2;
-            int rowPos = map.GetMapRowCount() + 2;
+            int rowPos = map.GetMapRowCount() +1;
 
             //Writing Title
-            Console.SetCursorPosition( columnPos, rowPos++);
+            Console.SetCursorPosition(columnPos, rowPos++);
             Console.Write("QUEST LOG");
 
             //Top bound

@@ -113,6 +113,31 @@ namespace JourneyToTheMysticCave_Beta
 
         public int PoisonDamage;
 
+        #region Quest Declaration
+
+        #region Quest 1;
+        public string Quest1Name { get; set; }
+        public string Quest1Description { get; set; }
+        public string Quest1Target { get; set; }
+        public int Quest1CompletionNumber { get; set; }
+        #endregion
+
+        #region Quest 2;
+        public string Quest2Name { get; set; }
+        public string Quest2Description { get; set; }
+        public string Quest2Target { get; set; }
+        public int Quest2CompletionNumber { get; set; }
+        #endregion
+
+        #region Quest 3;
+        public string Quest3Name { get; set; }
+        public string Quest3Description { get; set; }
+        public string Quest3Target { get; set; }
+        public int Quest3CompletionNumber { get; set; }
+
+        #endregion
+        #endregion
+
         public void Init(LevelManager levelManager, Map map)
         {
             this.levelManager = levelManager;
@@ -208,6 +233,26 @@ namespace JourneyToTheMysticCave_Beta
 
             // Floor Damage
             PoisonDamage = 5;
+
+            // Quest configs
+
+            //Quest1
+            Quest1Name = "Break the Boss";
+            Quest1Description = "Lure out the boss and kill them by killing their minions.";
+            Quest1Target = "Boss";
+            Quest1CompletionNumber = 1;
+
+            //Quest2
+            Quest2Name = "Plowshares to Swords";
+            Quest2Description = "Collect your weapons.";
+            Quest2Target = "Sword";
+            Quest2CompletionNumber = 3;
+
+            //Quest3
+            Quest3Name = "Shopping Trip";
+            Quest3Description = "Visit the shop.";
+            Quest3Target = "Shop";
+            Quest3CompletionNumber = 1;
         }
 
         public int GiveHealth(Random random, string type)
