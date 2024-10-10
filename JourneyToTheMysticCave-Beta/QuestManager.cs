@@ -8,14 +8,12 @@ namespace JourneyToTheMysticCave_Beta
 {
     internal class QuestManager
     {
-        public List<Quest> quests;
-        public GameStats gameStats;
-        public Map map;
+        public List<Quest> quests = new List<Quest>();
+        public GameStats gameStats = new GameStats();
+        public Map map = new Map();
 
-        //Constructor for a Quest Manager
-        public QuestManager(GameStats gameStats, Map map)
+        public void Init(GameStats gameStats, Map map)
         {
-            quests = new List<Quest>();
             this.gameStats = gameStats;
             this.map = map;
         }
@@ -32,8 +30,8 @@ namespace JourneyToTheMysticCave_Beta
         //Method that draws the Quest UI to the screen
         public void Draw()
         {
-            int columnPos = map.GetMapColumnCount() + 2;
-            int rowPos = map.GetMapRowCount() +1;
+            int columnPos = map.GetMapColumnCount() + 30;
+            int rowPos = 0;//map.GetMapRowCount() +1;
 
             //Writing Title
             Console.SetCursorPosition(columnPos, rowPos++);
@@ -58,7 +56,7 @@ namespace JourneyToTheMysticCave_Beta
                 Console.SetCursorPosition(columnPos, rowPos++);
                 if (quests[i].complete)
                 {
-                    Console.Write("Quest Complete");
+                    Console.Write("*Quest Complete*");
                 }
                 else
                 {

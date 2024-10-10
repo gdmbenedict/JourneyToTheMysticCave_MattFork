@@ -14,18 +14,20 @@ namespace JourneyToTheMysticCave_Beta
         public ItemManager itemManager;
         public GameStats gameStats;
         public Map map;
+        public QuestManager questManager;
 
         public string enemyAttack;
         int columnCount = 0;
         int rowCount = 0;
 
-        public void Init(Player player, EnemyManager enemyManager, ItemManager itemManager, GameStats gamestats, Map map)
+        public void Init(Player player, EnemyManager enemyManager, ItemManager itemManager, GameStats gamestats, Map map, QuestManager questManager)
         {
             this.player = player;
             this.enemyManager = enemyManager;
             this.itemManager = itemManager;
             this.gameStats = gamestats;
             this.map = map;
+            this.questManager = questManager;
         }
 
         public void Update()
@@ -73,6 +75,15 @@ namespace JourneyToTheMysticCave_Beta
                     else if (itemManager.items[i].name == "Sword")
                         Console.Write($"{player.name} picked up sword, player damage increased by {gameStats.SwordMultiplier} \n");
 
+                    //checking if there is a related quest
+                    for (int j=0; j<questManager.quests.Count; j++)
+                    {
+                        if (itemManager.items[i].name == questManager.quests[j].questTarget)
+                        {
+                            questManager.quests[j].tasksCompleted++;
+                        }
+                    }
+
                     itemManager.items[i].pickedUp = false;
                 }
             }
@@ -97,6 +108,15 @@ namespace JourneyToTheMysticCave_Beta
                         //Debug.WriteLine("Detected it's a shop");
                         Console.Write(itemManager.items[i].Use());
                         
+                    }
+
+                    //checking if there is a related quest
+                    for (int j = 0; j < questManager.quests.Count; j++)
+                    {
+                        if (itemManager.items[i].name == questManager.quests[j].questTarget)
+                        {
+                            questManager.quests[j].tasksCompleted++;
+                        }
                     }
 
                     itemManager.items[i].pickedUp = false;
@@ -181,6 +201,15 @@ namespace JourneyToTheMysticCave_Beta
                     Console.Write($"{enemyManager.enemies[i].name} has died \n");
                     enemyManager.enemies[i].healthSystem.dead = false;
                     enemyManager.enemies[i].processed = true;
+
+                    //checking if there is a related quest
+                    for (int j = 0; j < questManager.quests.Count; j++)
+                    {
+                        if (enemyManager.enemies[i].name == questManager.quests[j].questTarget)
+                        {
+                            questManager.quests[j].tasksCompleted++;
+                        }
+                    }
                 }
             }
         }
