@@ -83,8 +83,15 @@ namespace JourneyToTheMysticCave_Beta
         public char HealthPillCharacter { get; set; }
         public string HealthPillName { get; set; }
         public int HealthPillIncrease { get; set; }
-
         public int HealthPillValue { get; set; }
+        #endregion
+
+        #region Shop Declarations
+        public int ShopCount { get; set; }
+        public char ShopCharacter { get; set; }
+        public string ShopName { get; set; }
+
+        public int ShopValue { get; set; }
         #endregion
 
         #region TrapStat Declarations
@@ -192,6 +199,12 @@ namespace JourneyToTheMysticCave_Beta
             SwordName = "Sword";
             SwordMultiplier = 10;
             SwordValue = 2;
+
+            // shop Configs
+            ShopCount = 1;
+            ShopCharacter = '¥';
+            ShopName = "Shop";
+            ShopValue = 0;
 
             // Floor Damage
             PoisonDamage = 5;

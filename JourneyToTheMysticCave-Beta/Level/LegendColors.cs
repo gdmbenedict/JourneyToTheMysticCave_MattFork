@@ -136,6 +136,9 @@ namespace JourneyToTheMysticCave_Beta
                 case var _ when c == gameStats.HealthPillCharacter: //HealthPill (item)
                     Console.ForegroundColor = ConsoleColor.Green;
                     break;
+                case var _ when c == gameStats.ShopCharacter: //shop color
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    break;
                 case '*': // next area
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     break;

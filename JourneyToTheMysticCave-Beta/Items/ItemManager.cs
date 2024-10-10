@@ -37,9 +37,9 @@ namespace JourneyToTheMysticCave_Beta
             this.map = map;
             this.enemyManager = enemyManager;
 
-            DistributeItems(1, 2, 1, 0, 0);
-            DistributeItems(2, 2, 1, 5, 1);
-            DistributeItems(3, 2, 1, 25, 2);
+            DistributeItems(1, 2, 1, 0, 0, 0);
+            DistributeItems(2, 2, 1, 5, 1, 1);
+            DistributeItems(3, 2, 1, 25, 0, 2);
         }
 
         public void Update()
@@ -85,7 +85,7 @@ namespace JourneyToTheMysticCave_Beta
             return items.Where(item => item is Money).All(money => money.collected);
         }
 
-        private void DistributeItems(int potionCount, int moneyCount, int swordCount, int trapCount, int level)
+        private void DistributeItems(int potionCount, int moneyCount, int swordCount, int trapCount, int shopCount, int level)
         {
             int index = items.Count;
 
@@ -116,9 +116,16 @@ namespace JourneyToTheMysticCave_Beta
             // Distribute traps
             for (int i = 0; i < trapCount; i++)
             {
-                var trap = new Trap(stats.TrapCount, stats.TrapCharacter, stats.TrapName, stats.TrapDamage, legendColors, player, enemyManager, levelManager, stats.TrapValue);
+                var trap = new Trap(stats.TrapCount, stats.TrapCharacter, stats.TrapName, stats.TrapDamage, legendColors, player, enemyManager, levelManager, stats.TrapValue );
                 trap.pos = stats.PlaceCharacters(level, random);
                 items.Add(trap);
+            }
+
+            for (int i=0; i<shopCount; i++)
+            {
+                var shop = new Shop(stats, stats.ShopCount, stats.ShopCharacter, stats.ShopName, legendColors, player, stats.ShopValue, log);
+                shop.pos = stats.PlaceCharacters(level, random);
+                items.Add(shop);
             }
 
             if (level == 0)
