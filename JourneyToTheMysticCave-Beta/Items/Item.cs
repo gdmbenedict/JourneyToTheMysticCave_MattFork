@@ -22,7 +22,7 @@ namespace JourneyToTheMysticCave_Beta
             this.name = name;
             this.legendColors = legendColors;
             this.player = player;
-            value = this.value;
+            this.value = value;
         }
 
         
@@ -41,7 +41,7 @@ namespace JourneyToTheMysticCave_Beta
         }
 
 
-        public void TryCollect()
+        public virtual void TryCollect()
         {
             if (!collected)
             {

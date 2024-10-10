@@ -75,10 +75,10 @@ namespace JourneyToTheMysticCave_Beta
         private void Draw()
         {
             map.Draw();
-            player.Draw();
             legendColors.Draw();
             itemManager.Draw();
             enemyManager.Draw();
+            player.Draw();
             hUD.Draw();
             gamelog.Draw();
         }

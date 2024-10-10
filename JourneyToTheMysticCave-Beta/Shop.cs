@@ -1,6 +1,7 @@
 ﻿using JourneyToTheMysticCave_Beta.Items;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,16 +19,17 @@ namespace JourneyToTheMysticCave_Beta
             shopKeeperName = pickRandomName();
             this.gamelog = gamelog;
             populateShop(stats, legendColors, player);
-            
+
         }
 
         public override void Update()
         {
+
             if (player.pos.x == pos.x && player.pos.y == pos.y)
             {
                 //bool used to interact with log function to display
                 pickedUp = true;
-
+                Debug.WriteLine(pickedUp.ToString());
             }
         }
 
@@ -133,10 +135,10 @@ namespace JourneyToTheMysticCave_Beta
             //adding items and prices
             for (int i=0; i<inventory.Length; i++)
             {
-                shopMessage += "[" + (i+1) + "]\tname: " + inventory[i].name + "\t\tcost: " + inventory[i].value + "\n";
+                shopMessage += "[" + (i+1) + "]\tname: " + inventory[i].name + "\tcost: " + inventory[i].value + "\n";
             }
 
-            shopMessage += "\nPlease press the number of your desired item.";
+            shopMessage += "\nPlease press the number of your desired item.\n";
 
             Console.Write(shopMessage);
 

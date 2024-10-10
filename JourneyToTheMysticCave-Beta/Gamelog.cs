@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,7 +59,7 @@ namespace JourneyToTheMysticCave_Beta
         {
             for (int i = 0; i < itemManager.items.Count; i++)
             {
-                if (itemManager.items[i].pickedUp)
+                if (itemManager.items[i].pickedUp && itemManager.items[i].name != "Shop")
                 {
                     if (itemManager.items[i].name == "Money")
                         Console.Write($"{player.name} picked up money \n");
@@ -83,14 +84,22 @@ namespace JourneyToTheMysticCave_Beta
 
         private void LogShop()
         {
+            //Debug.WriteLine("LogShop Executing");
+
             for (int i = 0; i < itemManager.items.Count; i++)
             {
                 if (itemManager.items[i].pickedUp)
                 {
+                    //Debug.WriteLine("Detected picked up item");
+
                     if (itemManager.items[i].name == "Shop")
                     {
+                        //Debug.WriteLine("Detected it's a shop");
                         Console.Write(itemManager.items[i].Use());
+                        
                     }
+
+                    itemManager.items[i].pickedUp = false;
                 }
                     
             }
