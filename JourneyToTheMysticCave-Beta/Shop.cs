@@ -29,7 +29,7 @@ namespace JourneyToTheMysticCave_Beta
             {
                 //bool used to interact with log function to display
                 pickedUp = true;
-                Debug.WriteLine(pickedUp.ToString());
+                //Debug.WriteLine(pickedUp.ToString());
             }
         }
 
