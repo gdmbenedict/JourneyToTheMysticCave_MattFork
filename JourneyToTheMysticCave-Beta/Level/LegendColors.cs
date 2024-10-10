@@ -62,9 +62,13 @@ namespace JourneyToTheMysticCave_Beta
             Console.SetCursorPosition(columnCount, rowCount++);
             DisplayChar(gameStats.PotionCharacter, gameStats.PotionName);
             Console.SetCursorPosition(columnCount, rowCount++);
+            DisplayChar(gameStats.HealthPillCharacter, gameStats.HealthPillName);
+            Console.SetCursorPosition(columnCount, rowCount++);
             DisplayChar(gameStats.TrapCharacter, gameStats.TrapName);
             Console.SetCursorPosition(columnCount, rowCount++);
             DisplayChar(gameStats.SwordCharacter, gameStats.SwordName);
+            Console.SetCursorPosition(columnCount, rowCount++);
+            DisplayChar(gameStats.ShopCharacter, gameStats.ShopName);
             Console.SetCursorPosition(columnCount, rowCount++);
             DisplayChar('*', "Next Area");
             Console.SetCursorPosition(columnCount, rowCount++);
