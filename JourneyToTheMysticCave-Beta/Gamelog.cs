@@ -50,6 +50,7 @@ namespace JourneyToTheMysticCave_Beta
             LogTrap();
             LogPickUp();
             LogEnemyDeath();
+            LogShop();
         }
 
         #region PickUps
@@ -73,6 +74,25 @@ namespace JourneyToTheMysticCave_Beta
 
                     itemManager.items[i].pickedUp = false;
                 }
+            }
+        }
+
+        #endregion
+
+        #region Shops
+
+        private void LogShop()
+        {
+            for (int i = 0; i < itemManager.items.Count; i++)
+            {
+                if (itemManager.items[i].pickedUp)
+                {
+                    if (itemManager.items[i].name == "Shop")
+                    {
+                        Console.Write(itemManager.items[i].Use());
+                    }
+                }
+                    
             }
         }
 

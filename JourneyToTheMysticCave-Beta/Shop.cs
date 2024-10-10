@@ -9,13 +9,26 @@ namespace JourneyToTheMysticCave_Beta
 {
     internal class Shop : Item
     {
+        private string shopKeeperName;
         private Item[] inventory;
+        private Gamelog gamelog;
 
-        public Shop(GameStats stats, int count, char character, string name, LegendColors legendColors, Player player, int value) : base(count, character, name, legendColors, player, value)
+        public Shop(GameStats stats, int count, char character, string name, LegendColors legendColors, Player player, int value, Gamelog gamelog) : base(count, character, name, legendColors, player, value)
         {
-            this.name = pickRandomName();
+            shopKeeperName = pickRandomName();
+            this.gamelog = gamelog;
             populateShop(stats, legendColors, player);
             
+        }
+
+        public override void Update()
+        {
+            if (player.pos.x == pos.x && player.pos.y == pos.y)
+            {
+                //bool used to interact with log function to display
+                pickedUp = true;
+
+            }
         }
 
         //Method that picks a random name from a list of names
@@ -108,10 +121,56 @@ namespace JourneyToTheMysticCave_Beta
                     };
         }
 
+        //method used to interact with shop
         public override string Use()
         {
-            //filling requirements of the item class
-            return "";
+            string shopMessage;
+
+            //Creating Shop Menu
+            shopMessage = "Hello! I'm " + shopKeeperName + " the shop keeper.\n";
+            shopMessage += "Here's what I'm selling:\n";
+
+            //adding items and prices
+            for (int i=0; i<inventory.Length; i++)
+            {
+                shopMessage += "[" + (i+1) + "]\tname: " + inventory[i].name + "\t\tcost: " + inventory[i].value + "\n";
+            }
+
+            shopMessage += "\nPlease press the number of your desired item.";
+
+            Console.Write(shopMessage);
+
+            ConsoleKeyInfo input = Console.ReadKey(true); //read input
+            bool triedToBuyItem = false;
+            string purchaseMessage = "";
+            
+            for (int i = 0; i < inventory.Length; i++)
+            {
+                //check for input number value
+                if((int)char.GetNumericValue(input.KeyChar) == i + 1)
+                {
+                    triedToBuyItem = true;
+
+                    if (player.money >= inventory[i].value)
+                    {
+                        player.money -= inventory[i].value;
+                        purchaseMessage += player.name + " bought a " + inventory[i].name + " for " + inventory[i].value + " dollars.\n";
+                        purchaseMessage += inventory[i].Use() + "\n";
+                    }
+                    else
+                    {
+                        purchaseMessage += player.name + " tried to buy a " + inventory[i].name + " but it was too expensive.\n";
+                    }
+                    
+                }
+            }
+
+            if (!triedToBuyItem)
+            {
+                purchaseMessage += player.name + " did not buy anything.";
+            }
+
+            return purchaseMessage;
         }
     }
 }
